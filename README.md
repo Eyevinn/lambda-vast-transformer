@@ -5,6 +5,12 @@
 Lambda function that proxies a VAST/VMAP request and applies and modifies the response according
 to a provided XSLT transform.
 
+## Usage
+
+```
+https://<alb-lambda>/transform?vastUrl=<url-encoded>&xsltUrl=<url-encoded>
+```
+
 The following XSLT example removes all click-through elements:
 
 ```xml
