@@ -31,6 +31,8 @@ export const handler: ALBHandler = async (event: ALBEvent): Promise<ALBResult> =
   try {
     if (event.path === "/transform" && event.httpMethod === "GET") {
       response = await handleTransform(event);
+    } else {
+      response = generateErrorResponse({ code: 404, message: "Resource not found" });
     }
   } catch (error) {
     console.error(error);
