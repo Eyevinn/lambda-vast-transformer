@@ -5,9 +5,27 @@
 Lambda function that proxies a VAST/VMAP request and applies and modifies the response according
 to a provided XSLT transform.
 
-*NB: Only works in `node <15` because `libxslt` does not support v16 or higher.*
+The following XSLT example removes all click-through elements:
+
+```xml
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="xml" encoding="utf-8" indent="yes"/>
+
+  <xsl:template match="node()|@*">
+    <xsl:copy>
+        <xsl:apply-templates select="node()|@*" />
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Drop VideoClicks -->
+  <xsl:template match="VideoClicks"></xsl:template>
+
+</xsl:stylesheet>
+```
 
 ## Development
+
+*NB: Only works in `node <15` because `libxslt` does not support v16 or higher.*
 
 ```
 npm install
@@ -15,8 +33,6 @@ npm run dev
 ```
 
 Development server is by default running on port 8000 and uses fastify to emulate an ALB to trigger Lambda function.
-
-## Example
 
 To try it out on your local environment
 
