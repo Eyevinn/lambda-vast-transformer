@@ -8,7 +8,7 @@ jobs:
     name: Build and Deploy Lambda
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
