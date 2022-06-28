@@ -35,5 +35,5 @@ jobs:
           aws_access_key_id: ${{ secrets.LAMBDA_AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.LAMBDA_AWS_SECRET_ACCESS_KEY }}
           aws_region: eu-north-1
-          function_name: lambda-vast-transformer-dev
+          function_name: lambda-vast-transformer
           zip_file: bundle.zip
