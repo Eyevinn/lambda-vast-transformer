@@ -8,15 +8,15 @@ jobs:
     name: Build and Deploy Lambda
     strategy:
       matrix:
-        node-version: [16.x]
-    runs-on: macos-latest
+        node-version: [14.x]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          architecture: 'arm64'
+          architecture: 'armv7'
       - name: npm install, test and build
         run: |
           npm ci --only=prod
