@@ -4,8 +4,8 @@
   "description": "Lambda function for modifying a VAST/VMAP XML on-the-fly",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc --project ./ && cp -r ./examples dist/",
-    "dev": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dev.server.js\"",
+    "build": "tsc --project ./",
+    "dev": "NODE_ENV=development tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dev.server.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {

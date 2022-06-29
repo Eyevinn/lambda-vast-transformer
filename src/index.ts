@@ -5,6 +5,8 @@ import path from "path";
 
 import { compress, fetchXslt, xsltProcess } from "./util";
 
+const NODE_ENV = process.env.NODE_ENV;
+
 const generateErrorResponse = ({ code: code, message: message }): ALBResult => {
   let response: ALBResult = {
     statusCode: code,
@@ -33,7 +35,7 @@ export const handler: ALBHandler = async (event: ALBEvent): Promise<ALBResult> =
   try {
     if (event.path === "/transform" && event.httpMethod === "GET") {
       response = await handleTransform(event);
-    } else if (event.path.match(/^\/examples\//) && event.httpMethod === "GET") {
+    } else if (NODE_ENV === "development" && event.path.match(/^\/examples\//) && event.httpMethod === "GET") {
       response = await serveXsltExample(event);
     } else {
       response = generateErrorResponse({ code: 404, message: "Resource not found" });
