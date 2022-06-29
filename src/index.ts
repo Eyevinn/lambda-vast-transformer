@@ -1,5 +1,7 @@
 import { ALBHandler, ALBEvent, ALBResult } from "aws-lambda";
 import fetch from "node-fetch";
+import { readFileSync } from "fs";
+import path from "path";
 
 import { compress, fetchXslt, xsltProcess } from "./util";
 
@@ -31,6 +33,8 @@ export const handler: ALBHandler = async (event: ALBEvent): Promise<ALBResult> =
   try {
     if (event.path === "/transform" && event.httpMethod === "GET") {
       response = await handleTransform(event);
+    } else if (event.path.match(/^\/examples\//) && event.httpMethod === "GET") {
+      response = await serveXsltExample(event);
     } else {
       response = generateErrorResponse({ code: 404, message: "Resource not found" });
     }
@@ -71,5 +75,31 @@ const handleTransform = async (event: ALBEvent): Promise<ALBResult> => {
     }
   } catch (error) {
     throw new Error(error);
+  }
+}
+
+const serveXsltExample = async (event: ALBEvent): Promise<ALBResult> => {
+  const m = event.path.match(/^\/examples\/(.*)$/);
+  if (m) {
+    try {
+      const exampleXsltFileName = m[1];
+      const xslt = readFileSync(path.join("./examples/", exampleXsltFileName), {
+        encoding: 'utf8'
+      });
+
+      return {
+        statusCode: 200,
+        headers: {
+          "Content-Type": "application/xml",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "Content-Type, Origin",
+          'Access-Control-Allow-Private-Network': 'true',
+        },
+        body: xslt,
+        isBase64Encoded: false,
+      }
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 }

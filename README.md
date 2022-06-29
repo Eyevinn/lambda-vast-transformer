@@ -40,15 +40,12 @@ npm run dev
 
 Development server is by default running on port 8000 and uses fastify to emulate an ALB to trigger Lambda function.
 
-To try it out on your local environment
-
-1. Start the development server
-2. Start an HTTP server to serve the XSL example directory: `cd examples && python -m http.server 9000`
-
 Observe that the URLs in the `vastUrl` and `xslt` query parameters need to be URL encoded as they may include `?` and `&` for example.
 
+A set of examples are available in the examples folder that is served via the `/examples` endpoint, e.g. `http://localhost:8000/examples/remove-click-through.xsl`. So to try it out you can just run the following command:
+
 ```
-curl --compressed -v "http://localhost:8000/transform?vastUrl=https%3A%2F%2Feyevinn.adtest.eyevinn.technology%2Fapi%2Fv1%2Fvast%3Fdur%3D60&xslt=http%3A%2F%2Flocalhost%3A9000%2Fremove-click-through.xsl"
+curl --compressed -v "http://localhost:8000/transform?vastUrl=https%3A%2F%2Feyevinn.adtest.eyevinn.technology%2Fapi%2Fv1%2Fvast%3Fdur%3D60&xslt=http%3A%2F%2Flocalhost%3A8000%2Fexamples%2Fremove-click-through.xsl"
 ```
 
 # About Eyevinn Technology
