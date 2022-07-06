@@ -48,6 +48,10 @@ export const handler: ALBHandler = async (event: ALBEvent): Promise<ALBResult> =
 };
 
 const handleTransform = async (event: ALBEvent): Promise<ALBResult> => {
+  if (!event.queryStringParameters.vastUrl || !event.queryStringParameters.xslt) {
+    throw new Error("Missing mandatory query parameters: [vastUrl, xslt]");
+  }
+
   const vastUrl = new URL(event.queryStringParameters.vastUrl);
   const xsltUrl = new URL(event.queryStringParameters.xslt);
 
