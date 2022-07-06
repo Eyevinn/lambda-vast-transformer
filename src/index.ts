@@ -58,7 +58,17 @@ const handleTransform = async (event: ALBEvent): Promise<ALBResult> => {
   try {
     const xsltXml = await fetchXslt(xsltUrl);
 
-    const response = await fetch(vastUrl.toString());
+    let headers = {};
+    Object.keys(event.headers).forEach(k => {
+      if (k !== 'host') {
+        headers[k] = event.headers[k];
+      }
+    });
+
+    const response = await fetch(vastUrl.toString(), {
+      headers: headers,
+    });
+
     if (response.ok) {
       const vastXml = await response.text();
       const outXml = await xsltProcess(vastXml, xsltXml);
