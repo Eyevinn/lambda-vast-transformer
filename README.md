@@ -48,6 +48,27 @@ A set of examples are available in the examples folder that is served via the `/
 curl --compressed -v "http://localhost:8000/transform?vastUrl=https%3A%2F%2Feyevinn.adtest.eyevinn.technology%2Fapi%2Fv1%2Fvast%3Fdur%3D60&xslt=http%3A%2F%2Flocalhost%3A8000%2Fexamples%2Fremove-click-through.xsl"
 ```
 
+## Commercial Options
+
+The VAST Transformer is released as open source but we do offer some commercial options in relation to it. 
+Contact sales@eyevinn.se if you are interested for pricing and more information.
+
+### Hosting
+
+We host the service in our environment for a monthly recurring fee. Included is business hours support on a best effort basis.
+
+### Deployment
+
+We help you deploy and integrate the service in your environment on a time-of-material basis. 
+
+### Feature Development
+
+When you need a new feature developed and does not have the capacity or competence of your own to do it, we can on a time-of-material introduce this feature in the current code base and under the current open source license. 
+
+### Professional Services and Development
+
+When you need help with building for example integration adaptors or other development in your code base related to this open source project we can offer a development team from us to help out on a time-of-material basis. 
+
 # About Eyevinn Technology
 
 Eyevinn Technology is an independent consultant firm specialized in video and streaming. Independent in a way that we are not commercially tied to any platform or technology vendor.
