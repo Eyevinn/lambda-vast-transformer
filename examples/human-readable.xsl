@@ -48,8 +48,8 @@
         <xsl:attribute name="muted" />
       </xsl:element>
       <p>
-        <xsl:value-of select="./InLine/Creatives/Creative[@id='video']/Linear/Duration"/>
-        <xsl:apply-templates select="./InLine/Creatives/Creative[@id='video']/Linear/VideoClicks" />
+        <xsl:value-of select="./InLine/Creatives/Creative/Linear/Duration"/>
+        <xsl:apply-templates select="./InLine/Creatives/Creative/Linear/VideoClicks" />
       </p>
     </div>
   </xsl:template>
