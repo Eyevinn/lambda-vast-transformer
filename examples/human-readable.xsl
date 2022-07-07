@@ -39,7 +39,7 @@
       <xsl:element name="video">
         <xsl:attribute name="src">
           <xsl:value-of 
-            select="./InLine/Creatives/Creative[@id='video']/Linear/MediaFiles/MediaFile[@type='video/mp4']"
+            select="./InLine/Creatives/Creative/Linear/MediaFiles/MediaFile[@type='video/mp4']"
             disable-output-escaping="yes"
           />
         </xsl:attribute>
