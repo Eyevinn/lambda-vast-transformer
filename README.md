@@ -38,12 +38,10 @@ npm run dev
 
 Development server is by default running on port 8000 and uses fastify to emulate an ALB to trigger Lambda function.
 
-Observe that the URLs in the `vastUrl` and `xslt` query parameters need to be URL encoded as they may include `?` and `&` for example.
-
-A set of examples are available in the examples folder that is served via the `/examples` endpoint, e.g. `http://localhost:8000/examples/remove-click-through.xsl`. So to try it out you can just run the following command:
+Observe that the URLs in the `vastUrl` and `xslt` query parameters need to be URL encoded as they may include `?` and `&` for example. A set of XSLT examples are available in the examples folder and we have some online on our testcontent repository. To try it out run:
 
 ```
-curl --compressed -v "http://localhost:8000/transform?vastUrl=https%3A%2F%2Feyevinn.adtest.eyevinn.technology%2Fapi%2Fv1%2Fvast%3Fdur%3D60&xslt=http%3A%2F%2Flocalhost%3A8000%2Fexamples%2Fremove-click-through.xsl"
+curl --compressed -v "http://localhost:8000/transform?vastUrl=https%3A%2F%2Feyevinn.adtest.eyevinn.technology%2Fapi%2Fv1%2Fvast%3Fdur%3D60&xslt=https%3A%2F%2Ftestcontent.eyevinn.technology%2Fxslt%2Fremove-click-through.xsl"
 ```
 
 ## Commercial Options

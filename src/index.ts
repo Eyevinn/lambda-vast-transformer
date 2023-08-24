@@ -1,4 +1,4 @@
-import { ALBHandler, ALBEvent, ALBResult } from "aws-lambda";
+import { ALBHandler, ALBEvent, ALBResult } from "aws-lambda";
 import { readFileSync } from "fs";
 import path from "path";
 
@@ -17,7 +17,7 @@ const generateErrorResponse = ({ code: code, message: message }): ALBResult => {
     }
   };
   if (message) {
-    response.body = JSON.stringify({ reason: message });
+    response.body = JSON.stringify({ reason: message });
   }
   return response;
 };
