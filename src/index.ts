@@ -1,5 +1,4 @@
 import { ALBHandler, ALBEvent, ALBResult } from "aws-lambda";
-import fetch from "node-fetch";
 import { readFileSync } from "fs";
 import path from "path";
 

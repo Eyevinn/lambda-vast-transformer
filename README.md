@@ -31,8 +31,6 @@ The following XSLT example removes all click-through elements:
 
 ## Development
 
-*NB: Only works in `node <15` because `libxslt` does not support v16 or higher.*
-
 ```
 npm install
 npm run dev
