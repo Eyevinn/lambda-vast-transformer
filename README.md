@@ -8,7 +8,7 @@ to a provided XSLT transform.
 ## Usage
 
 ```
-https://<alb-lambda>/transform?vastUrl=<url-encoded>&xsltUrl=<url-encoded>
+https://<alb-lambda>/transform?vastUrl=<url-encoded>&xslt=<url-encoded>
 ```
 
 The following XSLT example removes all click-through elements:
