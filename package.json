@@ -9,20 +9,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postversion": "git push && git push --tags"
   },
-  "engines": {
-    "node": "<15"
-  },
+
   "author": "Eyevinn Technology AB <work@eyevinn.se>",
   "license": "MIT",
   "devDependencies": {
     "@eyevinn/dev-lambda": "^0.1.2",
-    "tsc-watch": "^5.0.3",
-    "typescript": "^4.7.4"
+    "tsc-watch": "^6.0.4",
+    "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@types/aws-lambda": "^8.10.101",
+    "@types/aws-lambda": "^8.10.119",
     "@types/node": "^18.0.0",
-    "node-fetch": "2.6.5",
-    "libxslt": "0.10.1"
+    "libxslt": "0.10.2"
   }
 }

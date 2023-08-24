@@ -1,5 +1,4 @@
 import { gzip } from "zlib";
-import fetch from "node-fetch";
 import libxslt from "libxslt";
 
 export const compress = async (input: Buffer): Promise<Buffer> => {
